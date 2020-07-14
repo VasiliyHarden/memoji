@@ -3,29 +3,47 @@ import { faceImgSources } from "./constants/face-img-sources";
 
 export default class Card {
   constructor(value) {
-
+    this.isOpen = false;
     this.value = value;
-    this.domElements = createCardElement(faceImgSources(value));
+    this.openHandler = null;
+    this.domElements = createCardElement(faceImgSources[value]);
+    this.domElements.card.addEventListener('click', this.open);
   }
 
-  getValue() {
-    return this.value;
-  }
+  getValue = () => this.value;
 
   markCorrect() {
-    this.domElements.card.classList.add('card--correct');
+    this.domElements.face.classList.add('card__face--correct');
   }
 
   markIncorrect() {
-    this.domElements.card.classList.add('card--incorrect');
+    this.domElements.face.classList.add('card__face--incorrect');
   }
 
-  turnDown() {
+  open = () => {
+    console.log('open!');
+    if (this.isOpen) {
+      return;
+    }
 
-    this.domElements.card.classList.remove('card--incorrect');
+    this.isOpen = true;
+    this.domElements.card.classList.add('card--open');
+    if (this.openHandler) {
+      this.openHandler(this);
+    }	
+  };
+
+  close() {
+    this.isOpen = false;
+    this.domElements.card.classList.remove('card--open');
+    this.domElements.face.classList.remove('card__face--incorrect');
   }
 
-  getNativeElement() {
-    return this.domElements.wrapper;
+  setOpenHandler(handler) {
+    this.openHandler = handler;
+  }
+
+  getDomElement() {
+    return this.domElements.card;
   }
 }

@@ -5,18 +5,16 @@ const createElemWithClass = (type, className) => {
 };
 
 export const createCardElement = (faceImgSource) => {
-  const wrapper = createElemWithClass('div', 'card')
-  const card = createElemWithClass('div', 'card__inner');
+  const card = createElemWithClass('div', 'card');
   const face = createElemWithClass('div', 'card__face');
   const shirt = createElemWithClass('div', 'card__shirt');
 
   const img = document.createElement('img');
-  img.setAttribute('src', faceImgSouce);
+  img.setAttribute('src', faceImgSource);
 
   face.appendChild(img);
   card.appendChild(face);
   card.appendChild(shirt);
-  wrapper.appendChild(card);
-  
-  return { wrapper, card };
+
+  return { card, face };
 };

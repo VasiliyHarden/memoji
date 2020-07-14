@@ -3,5 +3,8 @@ export const cardValues = {
   hamster: 'HAMSTER',
   lion: 'LION',
   panda: 'PANDA',
-  rabbit: 'RABBIT'
+  rabbit: 'RABBIT',
+  octopus: 'OCTOPUS',
+  fox: 'FOX',
+  bear: 'BEAR'
 };

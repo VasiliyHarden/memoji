@@ -10,15 +10,15 @@ export default class Game {
     this.cards.forEach(card => card.setOpenHandler(this.cardOpenHandler));
   }
 
-  cardOpenHandler(card) {
+  cardOpenHandler = (card) => {
     this.clearIncorrectBuffer();
     this.activeCards.push(card);
-    if (!(this.activeCards.length === level)) {
+    if (!(this.activeCards.length === this.level)) {
       return;
     }
 
     const isEqual = this.isEqualCards(...this.activeCards);
-    this.markCards(...this.activeCards, isEqual);
+    this.markCards( isEqual, ...this.activeCards);
     this.activeCards = [];
     this.checkGameEnd();
   }
@@ -30,7 +30,7 @@ export default class Game {
     return true;
   }
 
-  markCards(...cards, isEqual) {
+  markCards(isEqual, ...cards) {
     const mark = isEqual ? 'markCorrect' : 'markIncorrect';
     const buffer = isEqual ? this.correctBuffer : this.incorrectBuffer;
     cards.forEach(card => card[mark]());
@@ -39,7 +39,7 @@ export default class Game {
 
   clearIncorrectBuffer() {
     if (this.incorrectBuffer) {
-      this.incorrectBuffer.forEach(card => card.turnDown());
+      this.incorrectBuffer.forEach(card => card.close());
       this.incorrectBuffer = [];
     }
   }
@@ -49,6 +49,10 @@ export default class Game {
     if (isEnd && this.gameEndHandler) {
       this.gameEndHandler();
     }
+  }
+
+  getCards() {
+    return this.cards;
   }
 
   setGameEndHandler(handler) {
