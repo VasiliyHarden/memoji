@@ -1,3 +1,5 @@
+import { clearChildren } from "./utils/clear-children";
+
 const wrapCard = (cardElement) => {
   const wrapper = document.createElement('div');
   wrapper.classList.add('card-wrapper');
@@ -7,9 +9,12 @@ const wrapCard = (cardElement) => {
 
 export default class GameRenderer {
   
-  mount(game, parentElement) {
+  static mount = (game, level, parentElement) => {
+    clearChildren(parentElement);
+
     const container = document.createElement('div');
     container.classList.add('content');
+    container.classList.add(`content--${level}`)
 
     const cards = game.getCards();
     cards.forEach(card => {

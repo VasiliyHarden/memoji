@@ -4,7 +4,36 @@
     <title>Memoji</title>
   </head>
   <body>
-    <h1>Memoji</h1>
-    <div id='root'></div>
+    <nav class='navbar'>
+      <div class='navbar__inner'>
+        <h1 class='navbar__header'>Memoji</h1>
+        <ul class='navbar__list'>
+          <li class='navbar__list-item'>
+            <a class='navbar__link' data-game-runner data-complexity='easy'>
+              <img src='./assets/rabbit.png' class='navbar__img' />
+              Easy
+            </a>
+          </li>
+          <li class='navbar__list-item'>
+            <a class='navbar__link' data-game-runner data-complexity='medium'>
+              <img src='./assets/fox.png' class='navbar__img' />
+              Medium
+            </a>
+          </li>
+          <li class='navbar__list-item'>
+            <a class='navbar__link' data-game-runner data-complexity='hard'>
+              <img src='./assets/octopus.png' class='navbar__img' />
+              Hard
+            </a>
+          </li>
+        </ul>
+        <p class='navbar__info'>
+          Current game level: <span class='navbar__info--highlight' id='level-info'></span>
+          Moves left: <span class='navbar__info--highlight' id='moves-info'></span>
+          Pick <span class='navbar__info--highlight' id='copies-info'></span> cards of the same animal to advance
+        </p>
+      </div>
+    </nav>
+    <main id='game-root' class='main'></main>
   </body>
 </html>

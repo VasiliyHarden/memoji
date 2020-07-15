@@ -1,0 +1,80 @@
+@import './settings';
+
+.modal-wrapper {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: auto;
+  position: fixed;
+}
+
+.modal-container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center; 
+  min-height: 100%;
+  padding: 3.5rem;
+  position: relative;
+}
+
+.modal-overlay {
+  background-color: $overlay-color;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal {
+  position: relative;
+  background-color: lighten($main-color, 10%);
+  border-radius: 0.3rem;
+  overflow: hidden;
+  flex-basis: 25.2rem;
+  flex-shrink: 0;
+
+}
+
+.modal__header {
+  color: $text-color;
+  margin: 0 0 1rem;
+  padding: 1rem 1rem 0;
+  text-align: center;
+}
+
+.modal__body {
+  color: $alternate-text-color;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.modal__buttons {
+  border-top: 1px solid $main-color;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal__btn {
+  background-color: transparent;
+  border: 0;
+  color: $text-color;
+  cursor: pointer;
+  padding: 0.8rem 1.4rem;
+
+  &:hover {
+    background-color: $main-color;
+  }
+}
+
+.freezed {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.hidden {
+  display: none;
+}

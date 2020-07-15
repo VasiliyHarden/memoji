@@ -18,18 +18,19 @@ const populateArray = (arr, copies) => {
   return res;
 };
 
-export class GameFactory {
+export default class GameFactory {
 
-  create(complexity) {
+  static create = (complexity) => {
     let values = shuffle(Object.values(cardValues));
     values = values.slice(0, complexity.values);
     values = populateArray(values, complexity.copies);
+    shuffle(values);
 
     const cards = [];
     values.forEach(value => {
       cards.push(new Card(value));
     });
 
-    return new Game(cards, complexity.copies);
+    return new Game(cards, complexity.copies, complexity.moves);
   }
 }

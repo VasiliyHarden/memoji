@@ -1,11 +1,18 @@
+@import './styles/base';
 @import './styles/card';
 @import './styles/game';
-
-h1 {
-  color: red;
-}
+@import './styles/navbar';
+@import './styles/modal';
 
 body {
   margin: 0;
-	background-color: #cfd0cf;
+  background-color: #cfd0cf;
+  
+  display: flex;
+  flex-direction: row;
+}
+
+
+.main {
+  flex-grow: 1;
 }

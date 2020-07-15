@@ -1,14 +1,19 @@
-import { GameFactory } from './scripts/game-factory';
-import GameRenderer from './scripts/game-renderer';
-import { gameComplexity } from './scripts/constants/game-complexity';
+import App from './scripts/app';
+import { gameLevels } from './scripts/constants/game-levels';
 
 import './index.scss';
 
-console.log('Memoji setup');
+const gameRoot = document.getElementById('game-root');
+const infoRoots = {
+  level: document.getElementById('level-info'),
+  moves: document.getElementById('moves-info'),
+  copies: document.getElementById('copies-info')
+};
 
-const gameFactory = new GameFactory();
-const gameRenderer = new GameRenderer();
+const app = new App(gameRoot, infoRoots);
 
-const root = document.getElementById('root');
-const game = gameFactory.create(gameComplexity.hard);
-gameRenderer.mount(game, root);
+const newGameRequestHandler = (e) => {
+  app.newGameRequest(gameLevels[e.currentTarget.dataset.complexity]);
+};
+const gameStartLinks = document.querySelectorAll('[data-game-runner]');
+gameStartLinks.forEach(elem => elem.addEventListener('click', newGameRequestHandler));

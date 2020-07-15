@@ -1,0 +1,69 @@
+@import './settings';
+
+$list-item-height: 60px;
+
+.navbar {
+  padding-left: 4rem;
+}
+
+.navbar__inner {
+  background-color: $main-color;
+  height: 30rem;
+  width: 250px;
+
+  border-radius: 0 0 2rem 2rem;
+}
+
+.navbar__header {
+  color: $text-color;
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.navbar__list {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar__list-item {
+  display: block;
+  height: $list-item-height;
+}
+
+.navbar__img {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.navbar__link {
+  background-color: transparent;
+  border: 0;
+  color: lighten(#cfd0cf, 30%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  line-height: $list-item-height;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 0 0.5rem;
+
+  &:hover {
+    background-color: darken($main-color, 10%);
+  }
+}
+
+.navbar__info {
+  color: $alternate-text-color;
+  white-space: pre-line;
+  line-height: 1.4rem;
+  padding: 0 1rem;
+
+  &--highlight {
+    color: $text-color;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+}

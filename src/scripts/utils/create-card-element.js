@@ -1,8 +1,4 @@
-const createElemWithClass = (type, className) => {
-  const elem = document.createElement(type);
-  elem.classList.add(className);
-  return elem;
-};
+import { createElemWithClass } from './create-elem-with-class';
 
 export const createCardElement = (faceImgSource) => {
   const card = createElemWithClass('div', 'card');

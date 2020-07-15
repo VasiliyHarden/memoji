@@ -5,45 +5,42 @@ export default class Card {
   constructor(value) {
     this.isOpen = false;
     this.value = value;
-    this.openHandler = null;
+    this.openCardListener = null;
     this.domElements = createCardElement(faceImgSources[value]);
     this.domElements.card.addEventListener('click', this.open);
   }
 
+  getDomElement = () => this.domElements.card;
+
   getValue = () => this.value;
 
-  markCorrect() {
-    this.domElements.face.classList.add('card__face--correct');
-  }
-
-  markIncorrect() {
-    this.domElements.face.classList.add('card__face--incorrect');
-  }
+  setOpenCardListener = (handler) => {
+    this.openCardListener = handler;
+  };
 
   open = () => {
-    console.log('open!');
     if (this.isOpen) {
       return;
     }
 
     this.isOpen = true;
     this.domElements.card.classList.add('card--open');
-    if (this.openHandler) {
-      this.openHandler(this);
+    if (this.openCardListener) {
+      this.openCardListener(this);
     }	
   };
 
-  close() {
+  close = () => {
     this.isOpen = false;
     this.domElements.card.classList.remove('card--open');
     this.domElements.face.classList.remove('card__face--incorrect');
-  }
+  };
 
-  setOpenHandler(handler) {
-    this.openHandler = handler;
-  }
+  markCorrect = () => {
+    this.domElements.face.classList.add('card__face--correct');
+  };
 
-  getDomElement() {
-    return this.domElements.card;
-  }
+  markIncorrect = () => {
+    this.domElements.face.classList.add('card__face--incorrect');
+  };
 }
