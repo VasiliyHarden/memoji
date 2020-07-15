@@ -5,14 +5,26 @@ export default class Game {
     this.cards = cards;
     this.level = level;
     this.movesToDo = movesToDo;
+
     this.correctBuffer = [];
     this.incorrectBuffer = [];
     this.activeCards = [];
+
     this.endGameListener = null;
     this.openCardListener = null;
 
     this.cards.forEach(card => card.setOpenCardListener(this.cardOpenHandler));
   }
+
+  getCards = () =>  this.cards;
+
+  setEndGameListener = (handler) => {
+    this.endGameListener = handler;
+  };
+
+  setOpenCardListener = (handler) => {
+    this.openCardListener = handler;
+  };
 
   cardOpenHandler = (card) => {
     if (this.movesToDo === 0) { 
@@ -61,20 +73,10 @@ export default class Game {
     }
   };
 
-  getCards = () =>  this.cards;
-
   updateMoves = () => {
     this.movesToDo--;
     if (this.openCardListener) {
       this.openCardListener(this.movesToDo);
     }
-  };
-
-  setEndGameListener = (handler) => {
-    this.endGameListener = handler;
-  };
-
-  setOpenCardListener = (handler) => {
-    this.openCardListener = handler;
   };
 }

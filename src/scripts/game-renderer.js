@@ -13,8 +13,8 @@ export default class GameRenderer {
     clearChildren(parentElement);
 
     const container = document.createElement('div');
-    container.classList.add('content');
-    container.classList.add(`content--${level}`)
+    container.classList.add('game');
+    container.classList.add(`game--${level}`)
 
     const cards = game.getCards();
     cards.forEach(card => {

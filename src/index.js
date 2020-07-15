@@ -13,7 +13,7 @@ const infoRoots = {
 const app = new App(gameRoot, infoRoots);
 
 const newGameRequestHandler = (e) => {
-  app.newGameRequest(gameLevels[e.currentTarget.dataset.complexity]);
+  app.newGameRequest(gameLevels[e.currentTarget.dataset.level]);
 };
 const gameStartLinks = document.querySelectorAll('[data-game-runner]');
 gameStartLinks.forEach(elem => elem.addEventListener('click', newGameRequestHandler));

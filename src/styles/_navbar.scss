@@ -40,13 +40,13 @@ $list-item-height: 60px;
 .navbar__link {
   background-color: transparent;
   border: 0;
+  box-sizing: border-box;
   color: lighten(#cfd0cf, 30%);
   cursor: pointer;
   display: flex;
   align-items: center;
   line-height: $list-item-height;
   width: 100%;
-  box-sizing: border-box;
 
   padding: 0 0.5rem;
 
@@ -57,7 +57,6 @@ $list-item-height: 60px;
 
 .navbar__info {
   color: $alternate-text-color;
-  white-space: pre-line;
   line-height: 1.4rem;
   padding: 0 1rem;
   margin: 0;

@@ -3,16 +3,3 @@
 @import './styles/game';
 @import './styles/navbar';
 @import './styles/modal';
-
-body {
-  margin: 0;
-  background-color: #cfd0cf;
-  
-  display: flex;
-  flex-direction: row;
-}
-
-
-.main {
-  flex-grow: 1;
-}

@@ -27,9 +27,9 @@ export default class Modal {
   }
 
   show = ({ title = '', body = '', buttons = []}) => {
-    this._setText(this.title, title);
-    this._setText(this.body, body);
-    this._setButtons(buttons);
+    this.setText(this.title, title);
+    this.setText(this.body, body);
+    this.setButtons(buttons);
     this.wrapper.classList.remove('hidden');
   }
 
@@ -37,7 +37,7 @@ export default class Modal {
     this.wrapper.classList.add('hidden');
   }
 
-  _setText = (element, content) => {
+  setText = (element, content) => {
     if (content) {
       element.classList.remove('hidden');
       element.innerText = content;
@@ -46,7 +46,7 @@ export default class Modal {
     }
   };
 
-  _setButtons = (buttons) => {
+  setButtons = (buttons) => {
     clearChildren(this.buttons);
 
     if (buttons) {

@@ -18,6 +18,20 @@ export default class Card {
     this.openCardListener = handler;
   };
 
+  markCorrect = () => {
+    this.domElements.face.classList.add('card__face--correct');
+  };
+
+  markIncorrect = () => {
+    this.domElements.face.classList.add('card__face--incorrect');
+  };
+
+  close = () => {
+    this.isOpen = false;
+    this.domElements.card.classList.remove('card--open');
+    this.domElements.face.classList.remove('card__face--incorrect');
+  };
+
   open = () => {
     if (this.isOpen) {
       return;
@@ -28,19 +42,5 @@ export default class Card {
     if (this.openCardListener) {
       this.openCardListener(this);
     }	
-  };
-
-  close = () => {
-    this.isOpen = false;
-    this.domElements.card.classList.remove('card--open');
-    this.domElements.face.classList.remove('card__face--incorrect');
-  };
-
-  markCorrect = () => {
-    this.domElements.face.classList.add('card__face--correct');
-  };
-
-  markIncorrect = () => {
-    this.domElements.face.classList.add('card__face--incorrect');
   };
 }
