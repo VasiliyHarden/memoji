@@ -54,10 +54,10 @@ export default class Game {
     const successEnd = this.cards.length === this.correctBuffer.length;
     const failureEnd = this.movesToDo === 0;
     if (successEnd && this.endGameListener) {
-      this.endGameListener(gameOutcomes.win);
+      return this.endGameListener(gameOutcomes.win);
     }
     if (failureEnd && this.endGameListener) {
-      this.endGameListener(gameOutcomes.lose);
+      return this.endGameListener(gameOutcomes.lose);
     }
   };
 
